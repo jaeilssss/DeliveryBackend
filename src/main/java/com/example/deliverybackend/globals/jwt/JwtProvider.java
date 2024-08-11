@@ -101,8 +101,6 @@ public class JwtProvider implements InitializingBean {
                 Arrays.stream(claims.get("userId").toString().split(","))
                         .map(SimpleGrantedAuthority::new)
                         .collect(Collectors.toList());
-
-        // UserDetails principal = new
         return new UsernamePasswordAuthenticationToken(claims.get("userId"), "", authorities);
     }
 
