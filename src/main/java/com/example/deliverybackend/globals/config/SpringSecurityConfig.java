@@ -1,5 +1,8 @@
 package com.example.deliverybackend.globals.config;
 
+import com.example.deliverybackend.globals.filter.JwtAuthenticationFilter;
+import com.example.deliverybackend.globals.filter.JwtExceptionFilter;
+import com.example.deliverybackend.globals.jwt.JwtProvider;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.web.HttpSecurityDsl;
@@ -10,10 +13,16 @@ import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
+import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
 @Configuration
 @EnableWebSecurity
 public class SpringSecurityConfig {
+    private final JwtProvider jwtProvider;
+
+    public SpringSecurityConfig(JwtProvider jwtProvider) {
+        this.jwtProvider = jwtProvider;
+    }
 
     @Bean
     public PasswordEncoder passwordEncoder() {
@@ -32,6 +41,8 @@ public class SpringSecurityConfig {
                     request.requestMatchers("/api/member/login").permitAll();
                     request.requestMatchers("/api/member/signUp").permitAll();
                 })
+                .addFilterBefore(new JwtAuthenticationFilter(jwtProvider), UsernamePasswordAuthenticationFilter.class)
+                .addFilterBefore(new JwtExceptionFilter(), JwtAuthenticationFilter.class)
                 .build();
     }
 
