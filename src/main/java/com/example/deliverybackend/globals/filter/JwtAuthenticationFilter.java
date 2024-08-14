@@ -6,10 +6,11 @@ import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.util.StringUtils;
+import org.springframework.web.filter.GenericFilterBean;
 
 import java.io.IOException;
 
-public class JwtAuthenticationFilter extends GenericFilter {
+public class JwtAuthenticationFilter extends GenericFilterBean {
     private final JwtProvider jwtProviders;
 
     public JwtAuthenticationFilter(JwtProvider jwtProviders) {
@@ -23,11 +24,12 @@ public class JwtAuthenticationFilter extends GenericFilter {
             FilterChain filterChain
     ) throws IOException, ServletException {
         String token = resolveToken((HttpServletRequest) servletRequest);
+        System.out.println("JwtAuthenticationFilter !!! ");
         if(token != null && jwtProviders.validateToken(token)) {
             Authentication authentication = jwtProviders.getAuthentication(token);
             SecurityContextHolder.getContext().setAuthentication(authentication);
         }
-        filterChain.doFilter(servletRequest, servletResponse);
+        filterChain.doFilter(servletRequest,servletResponse);
     }
 
     public String resolveToken(HttpServletRequest request) {
@@ -36,5 +38,6 @@ public class JwtAuthenticationFilter extends GenericFilter {
             bearToken.startsWith("Bearer")) {
             return bearToken.substring(7);
         }
+        return null;
     }
 }
