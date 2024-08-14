@@ -17,7 +17,7 @@ public class MemberApiController extends BaseController{
     private final MemberDtoMapper memberDtoMapper;
 
     @PostMapping("/signup")
-    public Response<Boolean> signUp(@RequestBody MemberDto.CreateMemberRequest createMemberRequest) {
+    public Response<Boolean> signUp(@RequestBody @Valid MemberDto.CreateMemberRequest createMemberRequest) {
         return Response.success(memberFacade.signUp(memberDtoMapper.of(createMemberRequest)));
     }
 
