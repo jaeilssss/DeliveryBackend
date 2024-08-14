@@ -1,0 +1,14 @@
+package com.example.deliverybackend.application.member;
+
+
+import org.locationtech.jts.geom.Coordinate;
+import org.locationtech.jts.geom.GeometryFactory;
+import org.locationtech.jts.geom.Point;
+import org.locationtech.jts.geom.PrecisionModel;
+
+public class GeometryPoint {
+    public static Point createPoint(Long latitude, Long longitude) {
+        GeometryFactory geometryFactory = new GeometryFactory(new PrecisionModel(),4326);
+        return geometryFactory.createPoint(new Coordinate(latitude, longitude));
+    }
+}
