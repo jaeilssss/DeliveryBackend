@@ -4,6 +4,7 @@ import com.example.deliverybackend.domain.category.CategoryInfoMapper;
 import com.example.deliverybackend.domain.category.command.CategoryCommand;
 import com.example.deliverybackend.domain.category.dao.CategoryReader;
 import com.example.deliverybackend.domain.category.dao.CategoryStore;
+import com.example.deliverybackend.domain.category.entity.Category;
 import com.example.deliverybackend.domain.category.info.CategoryInfo;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -31,6 +32,11 @@ public class CategoryServiceImpl implements CategoryService{
         return categoryReader.getAllCategory()
                 .stream().map(categoryInfoMapper::of)
                 .collect(Collectors.toList());
+    }
+
+    @Override
+    public Category getCategory(Long categoryId) {
+        return categoryReader.getCategory(categoryId);
     }
 
 }

@@ -1,5 +1,6 @@
 package com.example.deliverybackend.domain.member;
 
+import com.example.deliverybackend.domain.member.entity.Member;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;

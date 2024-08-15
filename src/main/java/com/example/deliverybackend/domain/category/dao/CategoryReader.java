@@ -7,4 +7,5 @@ import java.util.List;
 public interface CategoryReader {
     public List<Category> getAllCategory();
     public void isExistCategory(String categoryName);
+    public Category getCategory(Long categoryId);
 }

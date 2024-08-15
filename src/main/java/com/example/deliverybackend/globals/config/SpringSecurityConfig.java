@@ -41,6 +41,7 @@ public class SpringSecurityConfig {
                     request.requestMatchers("/api/v1/member/login").permitAll();
                     request.requestMatchers("/api/v1/member/signup").permitAll();
                     request.requestMatchers("/api/v1/category/add").permitAll();
+                    request.requestMatchers("/api/v1/restaurant/create").permitAll();
                     request.anyRequest().authenticated();
                 })
                 .addFilterBefore(new JwtAuthenticationFilter(jwtProvider), UsernamePasswordAuthenticationFilter.class)

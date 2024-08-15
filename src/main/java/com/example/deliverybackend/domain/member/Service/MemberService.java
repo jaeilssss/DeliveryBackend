@@ -1,4 +1,7 @@
-package com.example.deliverybackend.domain.member;
+package com.example.deliverybackend.domain.member.Service;
+
+import com.example.deliverybackend.domain.member.MemberCommand;
+import com.example.deliverybackend.domain.member.info.MemberInfo;
 
 public interface MemberService {
     public Boolean signUp(MemberCommand.CreateMemberRequest createMemberRequest);

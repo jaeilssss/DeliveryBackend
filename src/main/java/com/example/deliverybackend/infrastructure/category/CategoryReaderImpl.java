@@ -28,4 +28,10 @@ public class CategoryReaderImpl implements CategoryReader {
                     throw new BaseException(CategoryErrorCode.EXIST_CATEGORY_NAME.getErrorMsg());
                 });
     }
+
+    @Override
+    public Category getCategory(Long categoryId) {
+        return categoryRepository.findById(categoryId)
+                .orElseThrow(() -> new BaseException(CategoryErrorCode.INVALID_CATEGORY_ID.getErrorMsg()));
+    }
 }

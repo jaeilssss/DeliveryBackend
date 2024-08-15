@@ -1,8 +1,8 @@
 package com.example.deliverybackend.application.member;
 
 import com.example.deliverybackend.domain.member.MemberCommand;
-import com.example.deliverybackend.domain.member.MemberService;
-import com.example.deliverybackend.domain.member.MemberInfo;
+import com.example.deliverybackend.domain.member.Service.MemberService;
+import com.example.deliverybackend.domain.member.info.MemberInfo;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;

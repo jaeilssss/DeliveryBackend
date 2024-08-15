@@ -21,8 +21,8 @@ public class MemberDto {
         private String nickName;
         private String phoneNumber;
 
-        private Long latitude;
-        private Long longitude;
+        private Double latitude;
+        private Double longitude;
 
         public Point setPoint() {
             return GeometryPoint.createPoint(latitude, longitude);

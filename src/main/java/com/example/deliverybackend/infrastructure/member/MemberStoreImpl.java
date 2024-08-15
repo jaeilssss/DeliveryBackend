@@ -1,7 +1,7 @@
 package com.example.deliverybackend.infrastructure.member;
 
 import com.example.deliverybackend.domain.member.MemberStore;
-import com.example.deliverybackend.domain.member.Member;
+import com.example.deliverybackend.domain.member.entity.Member;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;

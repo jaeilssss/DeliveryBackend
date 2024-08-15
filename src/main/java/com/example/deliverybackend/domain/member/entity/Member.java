@@ -1,4 +1,4 @@
-package com.example.deliverybackend.domain.member;
+package com.example.deliverybackend.domain.member.entity;
 
 import com.example.deliverybackend.domain.member.AbstractEntity;
 import jakarta.persistence.*;

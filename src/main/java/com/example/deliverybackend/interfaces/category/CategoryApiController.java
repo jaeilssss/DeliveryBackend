@@ -18,7 +18,6 @@ public class CategoryApiController extends BaseController {
 
     @PostMapping("/add")
     public Response addCategory(@RequestBody @Valid CategoryDto.AddCategoryRequest addCategoryRequest) {
-        System.out.println("컨트롤러 -> :" + addCategoryRequest.getCategoryName());
         categoryFacade.addCategory(categoryDtoMapper.of(addCategoryRequest));
         return Response.success(true);
     }
