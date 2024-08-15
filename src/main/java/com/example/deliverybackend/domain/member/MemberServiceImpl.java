@@ -20,6 +20,7 @@ import java.util.Base64;
 @Slf4j
 @Service
 @RequiredArgsConstructor
+@Transactional(readOnly = true)
 public class MemberServiceImpl implements MemberService{
     private final MemberReader memberReader;
     private final MemberStore memberStore;
@@ -35,6 +36,7 @@ public class MemberServiceImpl implements MemberService{
 
 
     @Override
+    @Transactional
     public Boolean signUp(MemberCommand.CreateMemberRequest createMemberRequest) {
         // 이미 존재한 이메일인지 확인
         validateIsExistEmail(createMemberRequest.getEmail());

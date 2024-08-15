@@ -12,7 +12,6 @@ import org.springframework.transaction.annotation.Transactional;
 @Slf4j
 @Component
 @RequiredArgsConstructor
-@Transactional(readOnly = true)
 public class MemberReaderImpl implements MemberReader {
     private final MemberRepository memberRepository;
 
