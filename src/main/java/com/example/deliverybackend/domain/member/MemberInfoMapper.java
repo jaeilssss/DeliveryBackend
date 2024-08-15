@@ -1,9 +1,10 @@
 package com.example.deliverybackend.domain.member;
 
+import com.example.deliverybackend.domain.member.entity.Member;
+import com.example.deliverybackend.domain.member.info.MemberInfo;
 import org.mapstruct.InjectionStrategy;
 import org.mapstruct.*;
 import org.mapstruct.ReportingPolicy;
-import org.springframework.stereotype.Component;
 
 @Mapper(
         componentModel = "spring",

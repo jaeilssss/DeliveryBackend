@@ -1,7 +1,7 @@
 package com.example.deliverybackend.infrastructure.member;
 
 import com.example.deliverybackend.domain.member.MemberReader;
-import com.example.deliverybackend.domain.member.Member;
+import com.example.deliverybackend.domain.member.entity.Member;
 import com.example.deliverybackend.globals.exception.BaseException;
 import com.example.deliverybackend.globals.exception.ErrorCode.MemberErrorCode;
 import lombok.RequiredArgsConstructor;

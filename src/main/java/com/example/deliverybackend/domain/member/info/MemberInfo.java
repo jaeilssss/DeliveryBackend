@@ -1,4 +1,4 @@
-package com.example.deliverybackend.domain.member;
+package com.example.deliverybackend.domain.member.info;
 
 import lombok.*;
 

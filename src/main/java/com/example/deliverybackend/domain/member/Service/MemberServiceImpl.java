@@ -1,5 +1,8 @@
-package com.example.deliverybackend.domain.member;
+package com.example.deliverybackend.domain.member.Service;
 
+import com.example.deliverybackend.domain.member.*;
+import com.example.deliverybackend.domain.member.entity.Member;
+import com.example.deliverybackend.domain.member.info.MemberInfo;
 import com.example.deliverybackend.globals.exception.BaseException;
 import com.example.deliverybackend.globals.exception.ErrorCode.MemberErrorCode;
 import com.example.deliverybackend.globals.jwt.JwtDto;
@@ -21,7 +24,7 @@ import java.util.Base64;
 @Service
 @RequiredArgsConstructor
 @Transactional(readOnly = true)
-public class MemberServiceImpl implements MemberService{
+public class MemberServiceImpl implements MemberService {
     private final MemberReader memberReader;
     private final MemberStore memberStore;
     private final PasswordEncoder passwordEncoder;

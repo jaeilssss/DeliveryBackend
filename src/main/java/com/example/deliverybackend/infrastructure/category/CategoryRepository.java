@@ -1,7 +1,6 @@
 package com.example.deliverybackend.infrastructure.category;
 
 import com.example.deliverybackend.domain.category.entity.Category;
-import com.example.deliverybackend.domain.member.Member;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

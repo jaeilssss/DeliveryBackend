@@ -1,5 +1,7 @@
 package com.example.deliverybackend.domain.member;
 
+import com.example.deliverybackend.domain.member.entity.Member;
+
 public interface MemberReader {
 
     public boolean checkIsExistEmail(String email);
