@@ -17,7 +17,6 @@ import java.util.List;
 @RequiredArgsConstructor
 public class RestaurantFacade {
     private final RestaurantService restaurantService;
-    private final FoodService foodService;
     private final CategoryService categoryService;
 
     public void addRestaurant(
@@ -33,7 +32,6 @@ public class RestaurantFacade {
     }
 
     public void registerFood(RestaurantCommand.RegisterFood registerFood) {
-//        foodService.registerFood(registerFood)
         restaurantService.registerFood(registerFood.getRestaurantId(),registerFood.toEntity());
     }
 
