@@ -15,4 +15,5 @@ public class RestaurantStoreImpl implements RestaurantStore {
     public void addRestaurant(Restaurant restaurant) {
         restaurantRepository.save(restaurant);
     }
+
 }

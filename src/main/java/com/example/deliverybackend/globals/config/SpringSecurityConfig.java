@@ -38,11 +38,12 @@ public class SpringSecurityConfig {
                 .rememberMe(AbstractHttpConfigurer::disable)
                 .formLogin(AbstractHttpConfigurer::disable)
                 .authorizeHttpRequests(request -> {
-                    request.requestMatchers("/api/v1/member/login").permitAll();
-                    request.requestMatchers("/api/v1/member/signup").permitAll();
-                    request.requestMatchers("/api/v1/category/add").permitAll();
-                    request.requestMatchers("/api/v1/restaurant/create").permitAll();
-                    request.anyRequest().authenticated();
+//                    request.requestMatchers("/api/v1/member/login").permitAll();
+//                    request.requestMatchers("/api/v1/member/signup").permitAll();
+//                    request.requestMatchers("/api/v1/category/add").permitAll();
+//                    request.requestMatchers("/api/v1/restaurant/register/food").permitAll();
+//                    request.anyRequest().authenticated();
+                    request.anyRequest().permitAll();
                 })
                 .addFilterBefore(new JwtAuthenticationFilter(jwtProvider), UsernamePasswordAuthenticationFilter.class)
                 .addFilterBefore(new JwtExceptionFilter(), JwtAuthenticationFilter.class)

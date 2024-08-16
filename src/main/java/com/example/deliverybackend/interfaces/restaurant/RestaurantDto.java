@@ -20,9 +20,9 @@ public class RestaurantDto {
 
         private Long categoryId;
 
-        @NotBlank
+/*        @NotBlank*/
         private Double latitude;
-        @NotBlank
+//        @NotBlank
         private Double longitude;
 
         private Double deliveryFee;
@@ -31,5 +31,15 @@ public class RestaurantDto {
             return GeometryPoint.createPoint(latitude, longitude);
         }
 
+    }
+
+    @Getter
+    @Setter
+    @ToString
+    public static class RegisterFoodRequest {
+        private Long restaurantId;
+        private String foodName;
+        private String foodDescription;
+        private Integer price;
     }
 }
