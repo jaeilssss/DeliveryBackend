@@ -25,7 +25,7 @@ public class RestaurantDto {
 //        @NotBlank
         private Double longitude;
 
-        private Double deliveryFee;
+        private Integer deliveryFee;
 
         public Point setPoint() {
             return GeometryPoint.createPoint(latitude, longitude);
