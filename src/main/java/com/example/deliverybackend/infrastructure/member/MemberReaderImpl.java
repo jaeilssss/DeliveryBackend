@@ -31,7 +31,7 @@ public class MemberReaderImpl implements MemberReader {
                 .ifPresent(member -> {
                     throw new BaseException(MemberErrorCode.EXIST_NICKNAME_ERROR.getErrorMsg());
                 });
-        return false;
+        return true;
     }
 
     @Override

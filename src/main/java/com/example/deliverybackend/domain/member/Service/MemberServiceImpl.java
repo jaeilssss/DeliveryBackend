@@ -130,7 +130,6 @@ public class MemberServiceImpl implements MemberService {
             IvParameterSpec ivParameterSpec = new IvParameterSpec(iv.getBytes());
             cipher.init(Cipher.DECRYPT_MODE, keySpec, ivParameterSpec);
 
-
             byte[] decoedBytes = Base64.getDecoder().decode(clientKey.getBytes());
             byte[] decrypted = cipher.doFinal(decoedBytes);
             return new String(decrypted).trim();

@@ -7,4 +7,6 @@ import java.util.List;
 public interface FoodReader {
     public Food findById(Long id);
     public List<Food> findAll();
+
+    public List<Food> findByIdList(List<Long> idList);
 }

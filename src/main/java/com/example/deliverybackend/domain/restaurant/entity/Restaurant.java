@@ -20,7 +20,7 @@ public class Restaurant extends AbstractEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "store_id")
+    @Column(name = "restaurant_id")
     private Long id;
 
     private String restaurantName;
@@ -29,16 +29,16 @@ public class Restaurant extends AbstractEntity {
 
     private Point location;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "category_id")
     @JsonIgnore
     private Category category;
 
-    private Double deliveryFee;
+    private Integer deliveryFee;
 
     @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
     @JoinColumn(name = "restaurant_id")
-    private List<Food> menu = new ArrayList<>();
+    private List<Food> menu ;
 
     public void registerFood(Food food) {
         menu.add(food);
