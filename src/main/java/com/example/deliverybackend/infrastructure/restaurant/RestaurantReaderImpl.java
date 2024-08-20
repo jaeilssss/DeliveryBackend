@@ -8,6 +8,8 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
 
+import java.util.List;
+
 @Slf4j
 @Component
 @RequiredArgsConstructor
@@ -18,5 +20,10 @@ public class RestaurantReaderImpl implements RestaurantReader {
     public Restaurant getRestaurant(Long id) {
         return restaurantRepository.findById(id)
                 .orElseThrow(() -> new BaseException(RestaurantErrorCode.NOT_FOUND_RESTAURNAT.getMessage()));
+    }
+
+    @Override
+    public List<Restaurant> getNearRestaurant(Double lat, Double lon) {
+        return restaurantRepository.findNearRestaurant(lat,lon);
     }
 }

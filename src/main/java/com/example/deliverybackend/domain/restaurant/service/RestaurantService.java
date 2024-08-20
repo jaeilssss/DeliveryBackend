@@ -19,4 +19,5 @@ public interface RestaurantService {
 
     public RestaurantInfo.Main getRestaurant(Long restaurantId);
 
+    List<RestaurantInfo.Main> getNearRestaurant(Double lat, Double lon);
 }
