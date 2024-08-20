@@ -11,5 +11,4 @@ public interface CategoryService {
     public void addCategory(CategoryCommand.AddCategoryRequest categoryRequest);
     public List<CategoryInfo.Main> getAllCategory();
     public Category getCategory(Long categoryId);
-
 }

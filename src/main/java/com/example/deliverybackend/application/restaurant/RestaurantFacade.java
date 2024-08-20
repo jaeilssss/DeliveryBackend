@@ -39,4 +39,8 @@ public class RestaurantFacade {
     public RestaurantInfo.Main getRestaurant(Long restaurantId) {
         return restaurantService.getRestaurant(restaurantId);
     }
+
+    public List<RestaurantInfo.Main> getNearRestaurant(Double lat, Double lon) {
+        return restaurantService.getNearRestaurant(lat, lon);
+    }
 }

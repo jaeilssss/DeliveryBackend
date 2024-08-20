@@ -2,10 +2,9 @@ package com.example.deliverybackend.domain.restaurant;
 
 import com.example.deliverybackend.domain.restaurant.entity.Restaurant;
 import com.example.deliverybackend.domain.restaurant.info.RestaurantInfo;
-import org.mapstruct.InjectionStrategy;
-import org.mapstruct.Mapper;
-import org.mapstruct.Mapping;
-import org.mapstruct.ReportingPolicy;
+import org.mapstruct.*;
+
+import java.util.List;
 
 @Mapper(
         componentModel = "spring",
@@ -15,6 +14,14 @@ import org.mapstruct.ReportingPolicy;
 
 public interface RestaurantInfoMapper {
 
-    @Mapping(source = "restaurant.category.id", target = "categoryId")
+    @Mappings({
+            @Mapping(source = "restaurant.category.id", target = "categoryId"),
+            @Mapping(expression = "java(restaurant.getLocation().getX())", target ="longitude"),
+            @Mapping(expression = "java(restaurant.getLocation().getY())", target = "latitude")
+    })
     RestaurantInfo.Main of(Restaurant restaurant);
+
+
+    @Mapping(source = "restaurant.category.id", target = "categoryId")
+    List<RestaurantInfo.Main> of(List<Restaurant> list);
 }

@@ -48,5 +48,10 @@ public class RestaurantServiceImpl implements RestaurantService{
         return restaurantInfoMapper.of(restaurantReader.getRestaurant(restaurantId));
     }
 
+    @Override
+    public List<RestaurantInfo.Main> getNearRestaurant(Double lat, Double lon) {
+        return restaurantInfoMapper.of(restaurantReader.getNearRestaurant(lat, lon));
+    }
+
 
 }

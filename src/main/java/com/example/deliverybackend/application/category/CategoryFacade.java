@@ -6,6 +6,7 @@ import com.example.deliverybackend.domain.category.info.CategoryInfo;
 import com.example.deliverybackend.domain.category.service.CategoryService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.security.core.parameters.P;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -23,4 +24,5 @@ public class CategoryFacade {
     public List<CategoryInfo.Main> getAllCategory() {
         return categoryService.getAllCategory();
     }
+
 }
