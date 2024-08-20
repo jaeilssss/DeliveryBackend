@@ -1,8 +1,12 @@
 package com.example.deliverybackend.domain.restaurant;
 
+import com.example.deliverybackend.domain.restaurant.entity.Food;
+import com.example.deliverybackend.domain.restaurant.info.FoodInfo;
 import org.mapstruct.InjectionStrategy;
 import org.mapstruct.Mapper;
 import org.mapstruct.ReportingPolicy;
+
+import java.util.List;
 
 @Mapper(
         componentModel = "spring",
@@ -11,4 +15,5 @@ import org.mapstruct.ReportingPolicy;
 )
 public interface FoodInfoMapper {
 
+    List<FoodInfo.Main> of(List<Food> foodList);
 }

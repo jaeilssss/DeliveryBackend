@@ -2,6 +2,8 @@ package com.example.deliverybackend.interfaces.orders;
 
 import com.example.deliverybackend.globals.enums.OrderStatus;
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotEmpty;
+import jakarta.validation.constraints.NotNull;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
@@ -14,16 +16,18 @@ public class OrdersDto {
     @Setter
     @ToString
     public static class OrderRequest {
-        @NotBlank(message = "memberId는 필수입니다.")
+        @NotNull
         private Long memberId;
-        @NotBlank(message = "restaurantId는 필수입니다.")
+        @NotNull
         private Long restaurantId;
-        @NotBlank(message = "orderMenuList는 필수입니다")
+        @NotEmpty
         private List<OrderFoodRequest> orderFoodList;
-        @NotBlank
+        @NotNull
         private Integer totalPrice;
         private Double lat;
         private Double lon;
+        private String address;
+
     }
 
     @Getter

@@ -4,6 +4,7 @@ import com.example.deliverybackend.domain.category.entity.Category;
 import com.example.deliverybackend.domain.category.service.CategoryService;
 import com.example.deliverybackend.domain.restaurant.RestaurantCommand;
 import com.example.deliverybackend.domain.restaurant.entity.Restaurant;
+import com.example.deliverybackend.domain.restaurant.info.RestaurantInfo;
 import com.example.deliverybackend.domain.restaurant.service.FoodService;
 import com.example.deliverybackend.domain.restaurant.service.RestaurantService;
 import lombok.RequiredArgsConstructor;
@@ -35,7 +36,7 @@ public class RestaurantFacade {
         restaurantService.registerFood(registerFood.getRestaurantId(),registerFood.toEntity());
     }
 
-    public Restaurant getRestaurant(Long restaurantId) {
+    public RestaurantInfo.Main getRestaurant(Long restaurantId) {
         return restaurantService.getRestaurant(restaurantId);
     }
 }

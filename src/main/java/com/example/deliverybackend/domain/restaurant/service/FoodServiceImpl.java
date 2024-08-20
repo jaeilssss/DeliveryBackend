@@ -1,5 +1,6 @@
 package com.example.deliverybackend.domain.restaurant.service;
 
+import com.example.deliverybackend.domain.restaurant.FoodInfoMapper;
 import com.example.deliverybackend.domain.restaurant.RestaurantCommand;
 import com.example.deliverybackend.domain.restaurant.dao.FoodReader;
 import com.example.deliverybackend.domain.restaurant.dao.FoodStore;
@@ -17,6 +18,7 @@ import java.util.List;
 public class FoodServiceImpl implements FoodService{
     private final FoodStore foodStore;
     private final FoodReader foodReader;
+    private final FoodInfoMapper foodInfoMapper;
     @Override
     public Food registerFood(RestaurantCommand.RegisterFood registerFood) {
         return foodStore.registerFood(registerFood.toEntity());
@@ -24,6 +26,6 @@ public class FoodServiceImpl implements FoodService{
 
     @Override
     public List<FoodInfo.Main> getFoodList(List<Long> foodIdList) {
-        return null;
+        return foodInfoMapper.of(foodReader.findByIdList(foodIdList));
     }
 }

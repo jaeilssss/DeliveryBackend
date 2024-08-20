@@ -24,12 +24,14 @@ public class QRestaurant extends EntityPathBase<Restaurant> {
 
     public final com.example.deliverybackend.domain.member.QAbstractEntity _super = new com.example.deliverybackend.domain.member.QAbstractEntity(this);
 
+    public final StringPath address = createString("address");
+
     public final com.example.deliverybackend.domain.category.entity.QCategory category;
 
     //inherited
     public final DateTimePath<java.time.LocalDateTime> createdAt = _super.createdAt;
 
-    public final NumberPath<Double> deliveryFee = createNumber("deliveryFee", Double.class);
+    public final NumberPath<Integer> deliveryFee = createNumber("deliveryFee", Integer.class);
 
     public final NumberPath<Long> id = createNumber("id", Long.class);
 

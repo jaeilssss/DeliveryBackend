@@ -24,6 +24,8 @@ public class QOrders extends EntityPathBase<Orders> {
 
     public final com.example.deliverybackend.domain.member.QAbstractEntity _super = new com.example.deliverybackend.domain.member.QAbstractEntity(this);
 
+    public final StringPath address = createString("address");
+
     //inherited
     public final DateTimePath<java.time.LocalDateTime> createdAt = _super.createdAt;
 
