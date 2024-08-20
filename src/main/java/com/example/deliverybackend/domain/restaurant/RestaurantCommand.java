@@ -16,9 +16,10 @@ public class RestaurantCommand {
     public static class AddRestaurantRequest {
         private String restaurantName;
         private String restaurantDescription;
-        private Double deliveryFee;
+        private Integer deliveryFee;
         private Point location;
         private Category category;
+        private String address;
 
         public Restaurant toEntity() {
             return Restaurant.builder()
@@ -27,6 +28,7 @@ public class RestaurantCommand {
                     .category(category)
                     .location(location)
                     .deliveryFee(deliveryFee)
+                    .address(address)
                     .build();
         }
     }

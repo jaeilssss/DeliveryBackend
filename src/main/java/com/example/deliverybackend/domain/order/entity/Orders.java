@@ -38,4 +38,6 @@ public class Orders extends AbstractEntity {
     @Enumerated(EnumType.STRING)
     private OrderStatus status;
 
+    private String address;
+
 }

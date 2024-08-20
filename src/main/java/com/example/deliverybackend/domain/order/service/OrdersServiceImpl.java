@@ -5,6 +5,7 @@ import com.example.deliverybackend.domain.order.OrderCommand;
 import com.example.deliverybackend.domain.order.OrdersInfoMapper;
 import com.example.deliverybackend.domain.order.dao.OrdersReader;
 import com.example.deliverybackend.domain.order.dao.OrdersStore;
+import com.example.deliverybackend.domain.order.entity.Orders;
 import com.example.deliverybackend.domain.order.info.OrdersInfo;
 import com.example.deliverybackend.domain.restaurant.info.RestaurantInfo;
 import lombok.RequiredArgsConstructor;
@@ -26,15 +27,15 @@ public class OrdersServiceImpl implements OrdersService{
     public OrdersInfo.Main order(
             MemberInfo.Main memberMain,
             RestaurantInfo.Main restaurantMain,
-            List<OrderCommand.OrderFoodRequest> orderFoodList,
+            List<OrderCommand.OrderMenuRequest> orderFoodList,
             OrderCommand.OrderRequest orderRequest
     ) {
-        ordersStore.order(
+        Orders orders = ordersStore.order(
                 orderRequest.toEntity(
-                        orderFoodList.stream().map(OrderCommand.OrderFoodRequest::toEntity).collect(Collectors.toList()),
+                        orderFoodList.stream().map(OrderCommand.OrderMenuRequest::toEntity).collect(Collectors.toList()),
                         memberMain.toEntity(),
                         restaurantMain.toEntity()
                 ));
-        return null;
+        return ordersInfoMapper.of(orders);
     }
 }

@@ -25,16 +25,17 @@ public class Restaurant extends AbstractEntity {
 
     private String restaurantName;
     private String restaurantDescription;
-    @JsonIgnore
 
     private Point location;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "category_id")
-    @JsonIgnore
     private Category category;
 
     private Integer deliveryFee;
+
+    private String address;
+
 
     @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
     @JoinColumn(name = "restaurant_id")

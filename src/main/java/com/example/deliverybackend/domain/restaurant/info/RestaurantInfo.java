@@ -1,6 +1,7 @@
 package com.example.deliverybackend.domain.restaurant.info;
 
 import com.example.deliverybackend.domain.restaurant.entity.Restaurant;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
@@ -17,6 +18,7 @@ public class RestaurantInfo {
         private String restaurantDescription;
         private Long categoryId;
         private Integer deliveryFee;
+        @JsonIgnore
         private Point location;
 
         public Restaurant toEntity() {

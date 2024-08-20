@@ -31,6 +31,8 @@ public class QOrderFood extends EntityPathBase<OrderFood> {
 
     public final NumberPath<Long> id = createNumber("id", Long.class);
 
+    public final NumberPath<Integer> quantity = createNumber("quantity", Integer.class);
+
     //inherited
     public final DateTimePath<java.time.LocalDateTime> updatedAt = _super.updatedAt;
 
