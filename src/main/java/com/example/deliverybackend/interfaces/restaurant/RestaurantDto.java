@@ -20,9 +20,9 @@ public class RestaurantDto {
 
         private Long categoryId;
 
-/*        @NotBlank*/
+        @NotBlank
         private Double latitude;
-//        @NotBlank
+        @NotBlank
         private Double longitude;
 
         private Integer deliveryFee;

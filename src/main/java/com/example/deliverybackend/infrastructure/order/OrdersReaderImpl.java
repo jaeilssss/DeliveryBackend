@@ -15,7 +15,7 @@ import java.util.List;
 @Component
 @RequiredArgsConstructor
 public class OrdersReaderImpl implements OrdersReader {
-    private final OrderRepository orderRepository;
+    private final OrderRepositoryCustom orderRepository;
 
     @Override
     public List<Orders> getOrderListFromRestaurant(Restaurant restaurant) {

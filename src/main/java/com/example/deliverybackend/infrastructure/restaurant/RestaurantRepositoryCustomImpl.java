@@ -1,6 +1,8 @@
 package com.example.deliverybackend.infrastructure.restaurant;
 
 import com.example.deliverybackend.application.member.GeometryPoint;
+import com.example.deliverybackend.domain.category.entity.QCategory;
+import com.example.deliverybackend.domain.restaurant.entity.QFood;
 import com.example.deliverybackend.domain.restaurant.entity.QRestaurant;
 import com.example.deliverybackend.domain.restaurant.entity.Restaurant;
 import com.querydsl.core.types.dsl.BooleanExpression;
@@ -12,12 +14,16 @@ import org.locationtech.jts.geom.Point;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
+import java.util.Optional;
 
 @Repository
 public class RestaurantRepositoryCustomImpl implements RestaurantRepositoryCustom{
 
     private final JPAQueryFactory jpaQueryFactory;
     private final double RADIUS_IN_METERS = 1000.0;
+    QRestaurant qRestaurant = QRestaurant.restaurant;
+    QCategory qCategory = QCategory.category;
+    QFood qFood = QFood.food;
 
     public RestaurantRepositoryCustomImpl(EntityManager entityManager) {
         this.jpaQueryFactory = new JPAQueryFactory(entityManager);
@@ -30,7 +36,6 @@ public class RestaurantRepositoryCustomImpl implements RestaurantRepositoryCusto
             throw new IllegalArgumentException("Invalid latitude or longitude");
         }
 
-        QRestaurant qRestaurant = QRestaurant.restaurant;
         Point point = GeometryPoint.createPoint(lat, lon);
 
         BooleanExpression distanceCondition = Expressions.booleanTemplate(
@@ -40,7 +45,14 @@ public class RestaurantRepositoryCustomImpl implements RestaurantRepositoryCusto
                 RADIUS_IN_METERS
         );
         return jpaQueryFactory.selectFrom(qRestaurant)
+                .join(qRestaurant.category, qCategory)
+                .leftJoin(qRestaurant.menu, qFood)
                 .where(distanceCondition)
                 .fetch();
+    }
+
+    @Override
+    public Optional<Restaurant> findRestaurant(Long id) {
+        return Optional.empty();
     }
 }

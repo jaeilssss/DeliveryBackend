@@ -31,7 +31,7 @@ public class CategoryReaderImpl implements CategoryReader {
 
     @Override
     public Category getCategory(Long categoryId) {
-        return categoryRepository.findById(categoryId)
+        return categoryRepository.findByCategoryId(categoryId)
                 .orElseThrow(() -> new BaseException(CategoryErrorCode.INVALID_CATEGORY_ID.getErrorMsg()));
     }
 }
