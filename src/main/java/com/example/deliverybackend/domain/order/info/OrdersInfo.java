@@ -15,7 +15,7 @@ public class OrdersInfo {
     public static class Main {
         private Long orderId;
         private String nickName;
-        private String restaurantId;
+        private Long restaurantId;
         private String restaurantName;
         private List<OrderFood> orderMenuList;
         private Integer totalPrice;

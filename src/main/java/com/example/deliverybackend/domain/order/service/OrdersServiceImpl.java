@@ -38,4 +38,11 @@ public class OrdersServiceImpl implements OrdersService{
                 ));
         return ordersInfoMapper.of(orders);
     }
+
+    @Override
+    public List<OrdersInfo.Main> getOrders(MemberInfo.Main memberMain, Integer page) {
+        return ordersReader.getOrderListFromMember(page, memberMain.toEntity())
+                .stream().map(ordersInfoMapper::of)
+                .collect(Collectors.toList());
+    }
 }

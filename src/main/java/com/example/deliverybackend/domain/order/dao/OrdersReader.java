@@ -9,5 +9,5 @@ import java.util.List;
 
 public interface OrdersReader {
     public List<Orders> getOrderListFromRestaurant(Restaurant restaurant);
-    public List<Orders> getOrderListFromMember(Member member);
+    public List<Orders> getOrderListFromMember(int page, Member member);
 }

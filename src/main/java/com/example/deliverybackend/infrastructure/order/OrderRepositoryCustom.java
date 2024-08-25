@@ -8,6 +8,6 @@ import java.util.List;
 
 public interface OrderRepositoryCustom {
     public List<Orders> findByRestaurant(Restaurant restaurant);
-    public List<Orders> findByMember(Member member);
+    public List<Orders> findByMember(int page, Member member);
 
 }

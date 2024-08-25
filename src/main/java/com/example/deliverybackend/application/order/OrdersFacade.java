@@ -74,4 +74,8 @@ public class OrdersFacade {
                 orderRequest);
     }
 
+    public List<OrdersInfo.Main> getOrders(Long memberId, int page) {
+        return ordersService.getOrders(memberService.getMemberInfo(memberId),page);
+    }
+
 }

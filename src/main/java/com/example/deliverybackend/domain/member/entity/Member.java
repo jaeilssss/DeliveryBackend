@@ -25,5 +25,6 @@ public class Member extends AbstractEntity {
     private String password;
     private String nickName;
     private String phoneNumber;
+    @Column(name = "location", columnDefinition = "geography(Point, 4326)")
     private Point location;
 }

@@ -15,7 +15,7 @@ import java.util.List;
 @Component
 @RequiredArgsConstructor
 public class OrdersReaderImpl implements OrdersReader {
-    private final OrderRepositoryCustom orderRepository;
+    private final OrderRepository orderRepository;
 
     @Override
     public List<Orders> getOrderListFromRestaurant(Restaurant restaurant) {
@@ -23,7 +23,7 @@ public class OrdersReaderImpl implements OrdersReader {
     }
 
     @Override
-    public List<Orders> getOrderListFromMember(Member member) {
-        return orderRepository.findByMember(member);
+    public List<Orders> getOrderListFromMember(int page, Member member) {
+        return orderRepository.findByMember(page, member);
     }
 }
