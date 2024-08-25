@@ -26,6 +26,8 @@ public class Restaurant extends AbstractEntity {
     private String restaurantName;
     private String restaurantDescription;
 
+    @JsonIgnore
+    @Column(name = "location", columnDefinition = "geography(Point, 4326)")
     private Point location;
 
     @ManyToOne(fetch = FetchType.LAZY)

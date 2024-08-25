@@ -13,11 +13,11 @@ public class MemberDto {
     @Setter
     @ToString
     public static class CreateMemberRequest {
-        @NotBlank
+        @NotBlank(message = "email은 필수값입니다.")
         private String email;
-        @NotBlank
+        @NotBlank(message = "password는 필수값 입니다.")
         private String password;
-        @NotBlank
+        @NotBlank(message = "닉네임 값은 필수 입니다.")
         private String nickName;
         private String phoneNumber;
 

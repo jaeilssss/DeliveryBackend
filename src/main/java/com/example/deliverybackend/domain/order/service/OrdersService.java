@@ -13,4 +13,9 @@ public interface OrdersService {
             RestaurantInfo.Main restaurantMain,
             List<OrderCommand.OrderMenuRequest> orderFoodList,
             OrderCommand.OrderRequest orderRequest);
+
+    public List<OrdersInfo.Main> getOrders(
+            MemberInfo.Main memberMain,
+            Integer page
+    );
 }

@@ -28,4 +28,9 @@ public class OrderApiController extends BaseController {
                 ordersDtoMapper.of(orderRequest.getOrderFoodList()),
                 ordersDtoMapper.of(orderRequest)));
     }
+
+    @GetMapping("/get")
+    public Response getMyOrders(@RequestParam("memberId") Long memberId, @RequestParam("page") Integer page) {
+        return Response.success(ordersFacade.getOrders(memberId, page));
+    }
 }

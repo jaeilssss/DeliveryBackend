@@ -27,7 +27,6 @@ public class OrdersDto {
         private Double lat;
         private Double lon;
         private String address;
-
     }
 
     @Getter
@@ -44,7 +43,6 @@ public class OrdersDto {
     @Setter
     @ToString
     public static class GetDeliveryFee {
-
         @NotBlank
         private Double lat;
         @NotBlank

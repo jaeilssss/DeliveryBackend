@@ -27,7 +27,7 @@ jwt :
   expiration: 9600000
   refresh_expiration: 86400000
 server:
-  port: 8082
+  port: 8081
 
 api:
   openWeatherApiKey: 0e7ae3c8bc4c6c849ab3b3688c99501a

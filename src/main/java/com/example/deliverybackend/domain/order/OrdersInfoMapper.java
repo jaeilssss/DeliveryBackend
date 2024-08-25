@@ -14,10 +14,10 @@ import org.mapstruct.*;
 public interface OrdersInfoMapper {
 
     @Mappings({
-            @Mapping(source = "orders.member.nickName", target = "nickName"),
-            @Mapping(source = "orders.restaurant.id", target = "restaurantId"),
-            @Mapping(source = "orders.restaurant.restaurantName", target = "restaurantName"),
-            @Mapping(source = "orders.orderFoodList", target = "orderMenuList"),
+            @Mapping(expression = "java(orders.getMember().getNickName())", target = "nickName"),
+            @Mapping(expression = "java(orders.getRestaurant().getId())", target = "restaurantId"),
+            @Mapping(expression = "java(orders.getRestaurant().getRestaurantName())", target = "restaurantName"),
+            @Mapping(expression = "java(orders.getOrderFoodList())", target = "orderMenuList"),
             @Mapping(expression = "java(orders.getStatus().getDescription())", target = "status"),
             @Mapping(source = "orders.id", target = "orderId")
     })
